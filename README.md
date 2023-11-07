@@ -1,12 +1,14 @@
 #### This is main directory
 
-##### At /webApp you find all files related to React + Vite web app
+- /webApp - all files related to React + Vite web app
 
-##### At /webApp/dist - build files fro static web site
+- /webApp/dist - build files fro static web site
 
-##### At /cdk - all files for configuring AWS CDK Constructs and Stacks
+- /cdk - all files for configuring AWS CDK Constructs and Stacks
 
 #### Task - 2
+
+S3 bucket creation, website deployment, CloudFront Distribution and Invalidation added and configured by using AWS CDK
 
 CloudFront URL: https://d1ta9wgqox65lg.cloudfront.net/ - works
 
