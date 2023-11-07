@@ -2,7 +2,7 @@
 
 - /webApp - all files related to React + Vite web app
 
-- /webApp/dist - build files fro static web site
+- /webApp/dist - build files for static web site
 
 - /cdk - all files for configuring AWS CDK Constructs and Stacks
 
