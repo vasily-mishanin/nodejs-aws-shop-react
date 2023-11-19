@@ -18,7 +18,7 @@ test('Renders products list', async () => {
       description: 'Product 1 description',
       price: 1,
       count: 1,
-      image: 'https://i.dummyjson.com/data/products/1/thumbnail.jpg',
+      thumbnail: 'https://i.dummyjson.com/data/products/1/thumbnail.jpg',
     },
     {
       id: '2',
@@ -26,7 +26,7 @@ test('Renders products list', async () => {
       description: 'Product 2 description',
       price: 2,
       count: 2,
-      image: 'https://i.dummyjson.com/data/products/3/thumbnail.jpg',
+      thumbnail: 'https://i.dummyjson.com/data/products/3/thumbnail.jpg',
     },
   ];
   server.use(
