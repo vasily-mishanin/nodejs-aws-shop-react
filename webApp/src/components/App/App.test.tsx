@@ -1,30 +1,32 @@
-import { MemoryRouter } from "react-router-dom";
-import { test, expect } from "vitest";
-import App from "~/components/App/App";
-import { server } from "~/mocks/server";
-import { rest } from "msw";
-import API_PATHS from "~/constants/apiPaths";
-import { CartItem } from "~/models/CartItem";
-import { AvailableProduct } from "~/models/Product";
-import { renderWithProviders } from "~/testUtils";
-import { screen, waitForElementToBeRemoved } from "@testing-library/react";
-import { formatAsPrice } from "~/utils/utils";
+import { MemoryRouter } from 'react-router-dom';
+import { test, expect } from 'vitest';
+import App from '~/components/App/App';
+import { server } from '~/mocks/server';
+import { rest } from 'msw';
+import API_PATHS from '~/constants/apiPaths';
+import { CartItem } from '~/models/CartItem';
+import { AvailableProduct } from '~/models/Product';
+import { renderWithProviders } from '~/testUtils';
+import { screen, waitForElementToBeRemoved } from '@testing-library/react';
+import { formatAsPrice } from '~/utils/utils';
 
-test("Renders products list", async () => {
+test('Renders products list', async () => {
   const products: AvailableProduct[] = [
     {
-      id: "1",
-      title: "Product 1",
-      description: "Product 1 description",
+      id: '1',
+      title: 'Product 1',
+      description: 'Product 1 description',
       price: 1,
       count: 1,
+      image: 'https://i.dummyjson.com/data/products/1/thumbnail.jpg',
     },
     {
-      id: "2",
-      title: "Product 2",
-      description: "Product 2 description",
+      id: '2',
+      title: 'Product 2',
+      description: 'Product 2 description',
       price: 2,
       count: 2,
+      image: 'https://i.dummyjson.com/data/products/3/thumbnail.jpg',
     },
   ];
   server.use(
@@ -40,7 +42,7 @@ test("Renders products list", async () => {
     })
   );
   renderWithProviders(
-    <MemoryRouter initialEntries={["/"]}>
+    <MemoryRouter initialEntries={['/']}>
       <App />
     </MemoryRouter>
   );
