@@ -7,6 +7,7 @@ import Typography from '@mui/material/Typography';
 import { formatAsPrice } from '~/utils/utils';
 import AddProductToCart from '~/components/AddProductToCart/AddProductToCart';
 import { useAvailableProducts } from '~/queries/products';
+import Chip from '@mui/material/Chip';
 
 export default function Products() {
   const { data = [], isLoading } = useAvailableProducts();
@@ -34,7 +35,8 @@ export default function Products() {
                 {product.title}
               </Typography>
               <Typography>{formatAsPrice(product.price)}</Typography>
-              <Typography>count: {product.count}</Typography>
+
+              <Chip label={`count: ${product.count}`} />
             </CardContent>
             <CardActions>
               <AddProductToCart product={product} />
