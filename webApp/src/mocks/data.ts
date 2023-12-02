@@ -10,6 +10,7 @@ export const products: Product[] = [
     price: 24,
     title: 'ProductOne',
     thumbnail: 'https://i.dummyjson.com/data/products/3/thumbnail.jpg',
+    count: 5,
   },
   {
     description: 'Short Product Description7',
@@ -17,6 +18,7 @@ export const products: Product[] = [
     price: 15,
     title: 'ProductTitle',
     thumbnail: 'https://i.dummyjson.com/data/products/3/thumbnail.jpg',
+    count: 5,
   },
   {
     description: 'Short Product Description2',
@@ -24,6 +26,7 @@ export const products: Product[] = [
     price: 23,
     title: 'Product',
     thumbnail: 'https://i.dummyjson.com/data/products/3/thumbnail.jpg',
+    count: 5,
   },
   {
     description: 'Short Product Description4',
@@ -31,6 +34,7 @@ export const products: Product[] = [
     price: 15,
     title: 'ProductTest',
     thumbnail: 'https://i.dummyjson.com/data/products/3/thumbnail.jpg',
+    count: 5,
   },
   {
     description: 'Short Product Descriptio1',
@@ -38,6 +42,7 @@ export const products: Product[] = [
     price: 23,
     title: 'Product2',
     thumbnail: 'https://i.dummyjson.com/data/products/3/thumbnail.jpg',
+    count: 5,
   },
   {
     description: 'Short Product Description7',
@@ -45,6 +50,7 @@ export const products: Product[] = [
     price: 15,
     title: 'ProductName',
     thumbnail: 'https://i.dummyjson.com/data/products/3/thumbnail.jpg',
+    count: 5,
   },
 ];
 
@@ -60,6 +66,7 @@ export const cart: CartItem[] = [
       price: 24,
       title: 'ProductOne',
       thumbnail: 'https://i.dummyjson.com/data/products/3/thumbnail.jpg',
+      count: 3,
     },
     count: 2,
   },
@@ -70,6 +77,7 @@ export const cart: CartItem[] = [
       price: 15,
       title: 'ProductName',
       thumbnail: 'https://i.dummyjson.com/data/products/3/thumbnail.jpg',
+      count: 3,
     },
     count: 5,
   },
