@@ -42,7 +42,7 @@ export default function CSVFileImport({ url, title }: CSVFileImportProps) {
     });
     console.log('File to upload: ', fileName);
     console.log('Uploading to: ', response.data);
-    const result = await fetch(response.data.s3UploadUrl, {
+    const result = await fetch(response.data.s3UploadSignedUrl, {
       method: 'PUT',
       body: file,
     });
