@@ -11,18 +11,18 @@ type CSVFileImportProps = {
 
 const validatorConfig = {
   headers: [
-    { name: 'id', inputName: 'id' },
-    { name: 'title', inputName: 'title' },
-    { name: 'description', inputName: 'description' },
-    { name: 'price', inputName: 'price' },
+    { name: 'id', inputName: 'id', isRequired: true },
+    { name: 'title', inputName: 'title', isRequired: true },
+    { name: 'description', inputName: 'description', isRequired: true },
+    { name: 'price', inputName: 'price', isRequired: true },
     { name: 'discountPercentage', inputName: 'discountPercentage' },
     { name: 'rating', inputName: 'rating' },
-    { name: 'stock', inputName: 'stock' },
+    { name: 'count', inputName: 'count', isRequired: true },
     { name: 'brand', inputName: 'brand' },
     { name: 'category', inputName: 'category' },
-    { name: 'thumbnail', inputName: 'thumbnail' },
+    { name: 'thumbnail', inputName: 'thumbnail', isRequired: true },
   ], // required
-  isHeaderNameOptional: true,
+  isHeaderNameOptional: false,
   isColumnIndexAlphabetic: false,
 };
 
