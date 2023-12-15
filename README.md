@@ -1,4 +1,6 @@
-#### This is main directory
+#### This is main directory 
+
+This is frontend repo for this backend: https://github.com/vasily-mishanin/backend-rss-aws-developer
 
 - /webApp - all files related to React + Vite web app
 
@@ -37,3 +39,6 @@ DynamoDB Integration
 Import products via CSV upload and parse
 added to API paths:
 `import: 'https://xx44v5lsg3.execute-api.us-east-1.amazonaws.com/prod'` - for calling lambda to create Signed Upload URL for CSV file of products' data
+
+#### Task - 6 (SQS & SNS, Async Microservices Communication)  
+All done on backend
