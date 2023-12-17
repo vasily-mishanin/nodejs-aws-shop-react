@@ -1,12 +1,13 @@
-import React from "react";
-import { createRoot } from "react-dom/client";
-import App from "~/components/App/App";
-import CssBaseline from "@mui/material/CssBaseline";
-import { ThemeProvider } from "@mui/material/styles";
-import { BrowserRouter } from "react-router-dom";
-import { QueryClient, QueryClientProvider } from "react-query";
-import { ReactQueryDevtools } from "react-query/devtools";
-import { theme } from "~/theme";
+import React from 'react';
+import { createRoot } from 'react-dom/client';
+import App from '~/components/App/App';
+import CssBaseline from '@mui/material/CssBaseline';
+import { ThemeProvider } from '@mui/material/styles';
+import { BrowserRouter } from 'react-router-dom';
+import { QueryClient, QueryClientProvider } from 'react-query';
+import { ReactQueryDevtools } from 'react-query/devtools';
+import { theme } from '~/theme';
+import { AlertProvider } from './context/alertContext';
 
 const queryClient = new QueryClient({
   defaultOptions: {
@@ -15,11 +16,11 @@ const queryClient = new QueryClient({
 });
 
 if (import.meta.env.DEV) {
-  const { worker } = await import("./mocks/browser");
-  worker.start({ onUnhandledRequest: "bypass" });
+  const { worker } = await import('./mocks/browser');
+  worker.start({ onUnhandledRequest: 'bypass' });
 }
 
-const container = document.getElementById("app");
+const container = document.getElementById('app');
 // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
 const root = createRoot(container!);
 root.render(
@@ -28,7 +29,9 @@ root.render(
       <QueryClientProvider client={queryClient}>
         <ThemeProvider theme={theme}>
           <CssBaseline />
-          <App />
+          <AlertProvider>
+            <App />
+          </AlertProvider>
         </ThemeProvider>
         <ReactQueryDevtools initialIsOpen={false} />
       </QueryClientProvider>
