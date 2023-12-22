@@ -3,6 +3,7 @@ import Typography from '@mui/material/Typography';
 import Box from '@mui/material/Box';
 import axios from 'axios';
 import CSVFileValidator from 'csv-file-validator';
+import { useAlert } from '~/context/alertContext';
 
 type CSVFileImportProps = {
   url: string;
@@ -25,10 +26,14 @@ const validatorConfig = {
   isHeaderNameOptional: false,
   isColumnIndexAlphabetic: false,
 };
+//dmFzaWx5X21pc2hhbmluOlRFU1RfUEFTU1dPUkQ=
+const AUTHORIZATION_TOKEN = localStorage.getItem('authorization_token');
+console.log({ AUTHORIZATION_TOKEN });
 
 export default function CSVFileImport({ url, title }: CSVFileImportProps) {
   const [file, setFile] = React.useState<File>();
   const [isInvalidFile, setIsInvalidFile] = React.useState(false);
+  const { clearAlert } = useAlert();
 
   const onFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const files = e.target.files;
@@ -62,7 +67,7 @@ export default function CSVFileImport({ url, title }: CSVFileImportProps) {
 
   const uploadFile = async () => {
     const fileName = file?.name;
-
+    console.log({ AUTHORIZATION_TOKEN });
     if (!fileName) {
       console.error('No file. Provide file to upload');
       return;
@@ -70,21 +75,31 @@ export default function CSVFileImport({ url, title }: CSVFileImportProps) {
 
     //Get the presigned URL from AWS Lambda called importProductsFile
     console.log('get upload url from', url);
-    const response = await axios({
-      method: 'GET',
-      url,
-      params: {
-        name: encodeURIComponent(fileName),
-      },
-    });
-    console.log('File to upload: ', fileName);
-    console.log('Uploading to: ', response.data);
-    const result = await fetch(response.data.s3UploadSignedUrl, {
-      method: 'PUT',
-      body: file,
-    });
-    console.log('Result: ', result);
-    setFile(undefined);
+    // GET to /import
+    try {
+      const response = await axios({
+        method: 'GET',
+        headers: { Authorization: 'Basic ' + AUTHORIZATION_TOKEN || '' },
+        url,
+        params: {
+          name: encodeURIComponent(fileName),
+        },
+      });
+      console.log({ response });
+      console.log('File to upload: ', fileName);
+      console.log('Uploading to: ', response.data);
+
+      clearAlert();
+
+      const result = await fetch(response.data.s3UploadSignedUrl, {
+        method: 'PUT',
+        body: file,
+      });
+      console.log('Result: ', result);
+      setFile(undefined);
+    } catch (error) {
+      console.log('Error while getting URL', error);
+    }
   };
 
   return (
@@ -103,7 +118,7 @@ export default function CSVFileImport({ url, title }: CSVFileImportProps) {
         <div>
           <button onClick={removeFile}>Remove file</button>
           <button onClick={uploadFile}>Upload file</button>
-          {!isInvalidFile && <span>{file.name}</span>}
+          {!isInvalidFile && <span> - {file.name}</span>}
         </div>
       )}
     </Box>

@@ -1,4 +1,4 @@
-#### This is main directory 
+#### This is main directory
 
 This is frontend repo for this backend: https://github.com/vasily-mishanin/backend-rss-aws-developer
 
@@ -40,5 +40,10 @@ Import products via CSV upload and parse
 added to API paths:
 `import: 'https://xx44v5lsg3.execute-api.us-east-1.amazonaws.com/prod'` - for calling lambda to create Signed Upload URL for CSV file of products' data
 
-#### Task - 6 (SQS & SNS, Async Microservices Communication)  
+#### Task - 6 (SQS & SNS, Async Microservices Communication)
+
 All done on backend
+
+#### Task 7 (Authorization)
+
+https://github.com/rolling-scopes-school/aws/blob/main/aws-developer/07_authorization/task.md
