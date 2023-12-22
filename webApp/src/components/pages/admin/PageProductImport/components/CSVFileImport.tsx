@@ -27,7 +27,7 @@ const validatorConfig = {
   isColumnIndexAlphabetic: false,
 };
 //dmFzaWx5X21pc2hhbmluOlRFU1RfUEFTU1dPUkQ=
-const AUTHORIZATION_TOKEN = localStorage.getItem('authorization_token');
+const AUTHORIZATION_TOKEN = localStorage.getItem('authorization_token') || ''; // '', null, 'somestring'
 console.log({ AUTHORIZATION_TOKEN });
 
 export default function CSVFileImport({ url, title }: CSVFileImportProps) {
@@ -79,7 +79,7 @@ export default function CSVFileImport({ url, title }: CSVFileImportProps) {
     try {
       const response = await axios({
         method: 'GET',
-        headers: { Authorization: 'Basic ' + AUTHORIZATION_TOKEN || '' },
+        headers: { Authorization: 'Basic ' + AUTHORIZATION_TOKEN },
         url,
         params: {
           name: encodeURIComponent(fileName),
