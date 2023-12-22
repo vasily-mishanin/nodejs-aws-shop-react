@@ -13,7 +13,7 @@ const setupAxiosInterceptors = ({ setAlertMessage }: Props) => {
       // If the response has a 401 or 403 status code, show an alert
       console.log('setupAxiosInterceptors - ERROR', error);
       if (error.response && error.response.status === 401) {
-        setAlertMessage('Unauthorized. Authorization header is not provided.');
+        setAlertMessage('Unauthorized. Authorization token is not provided.');
       }
       if (error.response.status === 403) {
         setAlertMessage('Invalid Authorization Token');
