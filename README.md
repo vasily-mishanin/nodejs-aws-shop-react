@@ -47,3 +47,10 @@ All done on backend
 #### Task 7 (Authorization)
 
 https://github.com/rolling-scopes-school/aws/blob/main/aws-developer/07_authorization/task.md
+
+#### Task 9 (Docker and AWS Elastic Beanstalk)
+
+added  
+ // AWS Elastic Beanstalk domain
+// http://vasily-mishanin-cart-api-test.us-east-1.elasticbeanstalk.com/api
+cart: 'https://8n6zt7471d.execute-api.us-east-1.amazonaws.com/api', // AWS Elastic Beanstalk domain proxy with API Gateway
